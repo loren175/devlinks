@@ -37,6 +37,7 @@ body * {
 body {
   background: var(--bg-url) no-repeat top center/cover;
   height: 100vh;
+  transition: background .2s linear;
 }
 
 #container {
@@ -66,7 +67,7 @@ body {
   position: relative;
   width: 6.4rem;
 
-  margin: .4rem auto;
+  margin: 0.4rem auto;
 }
 
 #switch button {
@@ -83,11 +84,16 @@ body {
   transform: translateY(-50%);
 
   cursor: pointer;
+
+  animation: slide-back .2s;
+}
+
+#switch button:hover {
+  outline: .8rem solid var(--social-hover);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
 }
 
 #switch span {
@@ -164,9 +170,27 @@ footer {
 
 @media (min-width: 70rem) {
   :root {
-    --bg-url: url(./assets/bg.jpg)
+    --bg-url: url(./assets/bg.jpg);
   }
   .light {
-    --bg-url: url(./assets/bg-light.jpg)
+    --bg-url: url(./assets/bg-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
