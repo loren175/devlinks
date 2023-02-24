@@ -36,10 +36,12 @@ body * {
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 #container {
-  width: 36rem;
+  width: 100%;
+  max-width: 58.8rem;
   margin: 5.6rem auto;
   padding: 0 2.4rem;
 }
@@ -158,4 +160,13 @@ footer {
   padding: 0 2.4rem;
   text-align: center;
   font-size: 1.4rem;
+}
+
+@media (min-width: 70rem) {
+  :root {
+    --bg-url: url(./assets/bg.jpg)
+  }
+  .light {
+    --bg-url: url(./assets/bg-light.jpg)
+  }
 }
